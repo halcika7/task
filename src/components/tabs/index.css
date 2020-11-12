@@ -1,0 +1,22 @@
+.tabs__wrapper {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.tabs__wrapper > .tabs__tab:first-child {
+  margin-right: 2rem;
+}
+
+.tabs__tab {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border: 2px solid transparent;
+}
+
+.tabs__tab.active {
+    border: 2px solid blue;
+}

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './index.css';
+
 let row = 10;
 
 const arr = new Array(10)
@@ -11,6 +13,11 @@ const arr = new Array(10)
     row += 10;
     return newArray;
   });
+
+const getPortion = (i, j) => arr[`${i}`].slice(j - 1, j + 2);
+
+const errorMessage = number =>
+  `Number (${number}) doesn't have 8 surrounding numbers`;
 
 const ArrayTask = () => {
   const [number, setNumber] = useState(1);
@@ -25,23 +32,20 @@ const ArrayTask = () => {
 
     if (sum) setSum(null);
 
-    if (!parsed) return setNumber(1);
+    if (!parsed || parsed < 0) return setNumber(1);
+
+    if (parsed > 100) return setNumber(100);
 
     return setNumber(parsed);
   };
 
-  const getPortion = (i, j) => arr[`${i}`].slice(j - 1, j + 2);
-
-  const showError = () =>
-    setError(`Number (${number}) doesn't have 8 surrounding numbers`);
-
   const findSum = () => {
-    if (number < 11 || number > 90) return showError();
+    if (number < 11 || number > 90) return setError(errorMessage(number));
 
     const secondDigit = number.toString()[1];
     const j = secondDigit === '0' ? 9 : parseInt(secondDigit, 10) - 1;
 
-    if ([0, 9].includes(j)) return showError();
+    if ([0, 9].includes(j)) return setError(errorMessage(number));
 
     const num = Math.floor((number / 100) * 10);
     const i = number % 10 === 0 ? num - 1 : num;
@@ -56,9 +60,9 @@ const ArrayTask = () => {
   };
 
   return (
-    <div>
-      <h3>Choose number</h3>
-      <label htmlFor="number">
+    <section className="array-task__section">
+      <h3 className="array-task__h3">Choose number (1 - 100)</h3>
+      <label htmlFor="number" className="array-task__label">
         <input
           type="number"
           id="number"
@@ -67,16 +71,16 @@ const ArrayTask = () => {
           onChange={onNumberChange}
         />
       </label>
-      <button type="button" onClick={findSum}>
+      <button className="array-task__button" type="button" onClick={findSum}>
         OK
       </button>
-      {error && <p>{error}</p>}
+      {error && <p className="array-task__p array-task__error">{error}</p>}
       {sum && (
-        <p>
+        <p className="array-task__p">
           Sum of 8 surrounding numbers including {number} is {sum}
         </p>
       )}
-    </div>
+    </section>
   );
 };
 

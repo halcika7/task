@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import './index.css';
+
 const UiElement = () => {
   const [direction, setDirection] = useState('normal');
 

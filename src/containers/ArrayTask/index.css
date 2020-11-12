@@ -1,0 +1,42 @@
+.array-task__section {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.array-task__h3 {
+  margin: 2rem 0;
+}
+
+.array-task__label {
+  display: block;
+  margin: 1rem 0;
+}
+
+.array-task__label input {
+  max-width: 100%;
+  padding: 0.4rem 0.75rem;
+  outline: none;
+}
+
+.array-task__button {
+  padding: 0.5rem 1rem;
+  min-width: 150px;
+  max-width: 100%;
+  font-size: 1.1rem;
+  background-color: #ccf6c8;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.array-task__button:active,
+.array-task__button:focus {
+  box-shadow: none;
+}
+
+.array-task__p {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.array-task__error {
+  color: tomato;
+}
