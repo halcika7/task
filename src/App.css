@@ -1,0 +1,59 @@
+:root {
+  --spin-direction: normal;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.spinner__wrapper {
+  position: relative;
+  height: 170px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner__button {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: none;
+  position: absolute;
+}
+
+.spinner__button:focus,
+.spinner__button:active {
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.spinner__span {
+  height: 110px;
+  width: 110px;
+  border-style: dashed;
+  border-radius: 50%;
+  padding: 1rem;
+  border-left-color: black;
+  border-top-color: black;
+  border-right-color: yellowgreen;
+  border-bottom-color: yellowgreen;
+  animation: spin 4s linear infinite;
+}
+
+.normal {
+  animation-direction: normal;
+}
+
+.reverse {
+  animation-direction: reverse;
+}
